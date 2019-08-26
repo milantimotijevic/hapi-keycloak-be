@@ -1,0 +1,15 @@
+{
+  "name": "hapi-keycloak-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^18.3.2",
+    "keycloak-hapi": "^1.2.1"
+  }
+}
