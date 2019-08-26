@@ -1,15 +1,18 @@
 const { Server } = require('@hapi/hapi');
 const server = new Server({
-    port: 3000
+    port: 3001,
+    routes: {
+       cors: true
+    }
 });
-const runServer = async () => {
+const provision = async () => {
     await server.register({
         plugin: require('keycloak-hapi'),
         options: {
             serverUrl: 'http://localhost:8080/auth',
             realm: 'augustus',
             clientId: 'express-keycloak',
-            bearerOnly: true // set it to true if you're writing a resource server (REST API).
+            bearerOnly: true // true for REST service
         }
     });
 
@@ -26,20 +29,25 @@ const runServer = async () => {
         },
         {
             method: 'GET',
-            path: '/products',
+            path: '/private/mage-spells',
             handler: () => {
-                return ['drugs!'];
-            }
-        },
-        {
-            method: 'GET',
-            path: '/things',
-            handler: () => {
-                return ['cats!'];
+                return ['fireball', 'frostbolt', 'arcane missiles'];
             },
             config: {
                 auth: {
                     scope: ['mage']
+                }
+            }
+        },
+        {
+            method: 'GET',
+            path: '/private/warlock-spells',
+            handler: () => {
+                return ['shadowbolt', 'corruption', 'drain life'];
+            },
+            config: {
+                auth: {
+                    scope: ['warlock']
                 }
             }
         }]);
@@ -47,5 +55,5 @@ const runServer = async () => {
     server.start();
 };
 
-runServer();
+provision();
 
