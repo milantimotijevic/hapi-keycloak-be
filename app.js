@@ -1,6 +1,6 @@
 const { Server } = require('@hapi/hapi');
 const server = new Server({
-    port: 3001,
+    port: 3000,
     routes: {
        cors: true
     }
