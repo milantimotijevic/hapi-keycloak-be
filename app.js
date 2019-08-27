@@ -29,6 +29,24 @@ const provision = async () => {
         },
         {
             method: 'GET',
+            path: '/api/v1/common-facts',
+            handler: () => {
+                return [
+                    'LOTR > GOT',
+                    'LOL > DOTA',
+                    'X-Men > Avengers',
+                    'Han shot first',
+                    'Nerds rule!',
+                ];
+            },
+            options: {
+                description: 'Get a list of some common, widely known and self-evident facts.',
+                tags: ['api'],
+                auth: false,
+            },
+        },
+        {
+            method: 'GET',
             path: '/api/v1/mage-spells',
             handler: () => {
                 return ['fireball', 'frostbolt', 'arcane missiles'];
