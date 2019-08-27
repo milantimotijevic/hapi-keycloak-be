@@ -11,7 +11,7 @@ const provision = async () => {
         options: {
             serverUrl: 'http://localhost:8080/auth',
             realm: 'augustus',
-            clientId: 'express-keycloak',
+            clientId: 'cool-project-of-awesomeness',
             bearerOnly: true // true for REST service
         }
     });
