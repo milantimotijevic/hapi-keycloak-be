@@ -22,14 +22,14 @@ const provision = async () => {
     server.route([
         {
             method: 'GET',
-            path: '/base',
+            path: '/api/v1/base',
             handler: () => {
                 return 'yo!';
             }
         },
         {
             method: 'GET',
-            path: '/private/mage-spells',
+            path: '/api/v1/mage-spells',
             handler: () => {
                 return ['fireball', 'frostbolt', 'arcane missiles'];
             },
@@ -41,7 +41,7 @@ const provision = async () => {
         },
         {
             method: 'GET',
-            path: '/private/warlock-spells',
+            path: '/api/v1/warlock-spells',
             handler: () => {
                 return ['shadowbolt', 'corruption', 'drain life'];
             },
